@@ -1,0 +1,50 @@
+body{
+    background-image: url(Fondo1.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    display: inline-grid;
+    place-items: center;
+    width: 100%;
+    font-family: "Lilita One", serif;
+    font-weight: 1000;
+    font-style: normal;
+    font-size: 8em;
+    color: #333333;   
+}
+
+.input{
+    top: 50%;
+    left: 60%;
+    
+}
+
+p{
+    top:50%;
+    left: 50%;
+    font-size: 0.1em;
+    color: #313030;
+    text-align: center;
+    font-family: "Lilita One", serif;
+}
+
+#btnComenzar {
+    width: 15%;
+    position: absolute ;
+    text-align: center;
+    font-size: 18px;
+    top: 60%;
+    left: 43%;
+    border: none;
+    font-family: "Lilita One", serif;
+    cursor: pointer;
+    border-radius: 8px;
+    color: #fffbfb;
+    background-color: #a824e5;
+    padding: 7px;
+}
+
+#btnComenzar:disabled {
+    background-color: #eee;
+}

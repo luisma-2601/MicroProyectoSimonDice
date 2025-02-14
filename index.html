@@ -5,11 +5,18 @@
     <title>Simón dice</title>
     <link href="estilos.css" rel="stylesheet" />
     <script src="script.js" type="text/javascript" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="juego">
+    <div id="inicio">
         <div class="titulo">Simon Dice</div>
-        <button id="btnComenzar">Comenzar Juego</button>
+        <div class="divInicio">
+            <p>Ingresa tu nombre de usuario</p>
+            <input id="usuario" type="text">
+            <button id="btnComenzar">Comenzar Juego</button>
+        </div>
+    </div>
+    <div class="juego">
         <div class="btnContenedor">
             <div class="cuadro rojo"></div>
             <div class="cuadro amarillo"></div>
