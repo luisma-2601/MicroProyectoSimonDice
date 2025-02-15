@@ -12,7 +12,7 @@ body{
     font-family: "Lilita One", serif;
     font-weight: 1000;
     font-style: normal;
-    font-size: 8em;
+    font-size: 5em;
     color: #333333;   
 }
 
@@ -169,8 +169,9 @@ p{
 }
 
 .titulo{
-    font-size: 2em;
-    color:rgb(17, 6, 103)
+    font-size: 1.5em;
+    color:rgb(17, 6, 103);
+    text-align: center;
 
 }
 
@@ -217,5 +218,13 @@ table {
     color: #333;
     font-size: 18px;
   }
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+        margin: 0 auto;
+    }
+}
 
    
