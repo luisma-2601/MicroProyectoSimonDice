@@ -1,3 +1,5 @@
+
+
 body{
     background-image: url(Fondo1.jpg);
     background-position: center center;
@@ -14,37 +16,206 @@ body{
     color: #333333;   
 }
 
-.input{
-    top: 50%;
-    left: 60%;
-    
+.inicio:disabled{
+    display:none;
 }
 
+.noVisible{
+    display:none;
+}
+
+
 p{
-    top:50%;
-    left: 50%;
-    font-size: 0.1em;
+    position: static;
+    font-size: 0.3em;
     color: #313030;
     text-align: center;
     font-family: "Lilita One", serif;
+
+}
+
+.cuadro{
+    top:50%;
+    border-radius: 5px;
+    width: 150px;
+    height: 150px;
+    cursor: pointer;
+}
+
+.cuadro:active,
+.active {
+    filter: brightness(125%);
+    transform: scale(0.85);
+}
+
+.btnContenedor {
+    display: inline-grid;
+    grid-gap: 15px;
+    grid-template-columns: auto auto;
 }
 
 #btnComenzar {
-    width: 15%;
-    position: absolute ;
     text-align: center;
-    font-size: 18px;
-    top: 60%;
+    font-size: 30px;
+    border: none;
+    font-family: "Lilita One", serif;
+    cursor: pointer;
+    border-radius: 8px;
+    color: #fffbfb;
+    background-color: #04c324;
+    padding: 7px;
+}
+
+#btnComenzar:disabled {
+    display: none;
+}
+
+#btnTop {
+    text-align: center;
+    font-size: 30px;
     left: 43%;
     border: none;
     font-family: "Lilita One", serif;
     cursor: pointer;
     border-radius: 8px;
     color: #fffbfb;
-    background-color: #a824e5;
+    background-color: #bb0b0b;
     padding: 7px;
 }
 
-#btnComenzar:disabled {
-    background-color: #eee;
+#btnTop:disabled {
+    display: none;
 }
+
+.rojo {
+    background-color: #e30f0f;
+}
+
+.amarillo {
+    background-color: #f4fa36;
+}
+
+.azul {
+    background-color: #3729ff;
+}
+
+.verde {
+    background-color: #30ff56;
+}
+
+.ganador {
+    animation: spin 1s ease-in-out;
+}
+
+.divInicio{
+    text-align: center;
+    font-size: 80px;
+    
+}
+
+#usuario{
+    font-size: 30px;
+    text-align: center;
+    font-family: "Lilita One", serif;
+    color: #fffbfb;
+    background-color: #b0afaf;
+    border: none;
+    border-radius: 8px;
+    padding: 7px;
+}
+
+
+#UI{
+    position: relative;
+    font-size: 50px;
+    text-align: center;
+    font-family: "Lilita One", serif;
+    color: #191515;
+    border: none;
+    border-radius: 8px;
+    padding: 7px;
+}
+
+.juego{
+    text-align: center;
+    font-size: 30px;
+    border: none;
+    font-family: "Lilita One", serif;
+    cursor: pointer;
+    border-radius: 8px;
+    color: #fffbfb;
+    padding: 7px;
+}
+
+.juego:disabled {
+    display: none;
+}
+
+#btnReinicio{
+    text-align: center;
+    left: 43%;
+    font-size: 30px;
+    border: none;
+    font-family: "Lilita One", serif;
+    cursor: pointer;
+    border-radius: 8px;
+    color: #fffbfb;
+    background-color: #bb0b0b;
+    padding: 10px;
+}
+
+#btnReinicio:disabled {
+    display: none;
+}
+
+.titulo{
+    font-size: 2em;
+    color:rgb(17, 6, 103)
+
+}
+
+#top{
+    font-size: 0.5em;
+}
+
+#top:disabled {
+    display: none;
+}
+
+.home{
+    text-align: center;
+    font-size: 30px;
+    border: none;
+    font-family: "Lilita One", serif;
+    cursor: pointer;
+    border-radius: 8px;
+    color: #fffbfb;
+    background-color: #bb0b0b;
+    padding: 7px;
+}
+
+table {
+    border-collapse: collapse;
+    border: 2px solid #000;
+  }
+  
+  td,
+  th {
+    border: 1px solid #000;
+    padding: 8px;
+  }
+  
+  th {
+    background: #024d7b;
+    color: #fff;
+    text-transform: uppercase;
+  }
+  
+  td {
+    text-align: center;
+    border-bottom: 2px solid #111;
+    color: #333;
+    font-size: 18px;
+  }
+
+   

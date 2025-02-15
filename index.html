@@ -1,30 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+<div style="width: 100vw; display: flex; justify-content: flex-end;">
+    <button id="home" class="noVisible">Volver</button>
+</div>
 <head>
     <meta charset="UTF-8">
     <title>Simón dice</title>
+    <div class="titulo">Simon Dice</div>
     <link href="estilos.css" rel="stylesheet" />
     <script src="script.js" type="text/javascript" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Lilita+One&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="inicio">
-        <div class="titulo">Simon Dice</div>
+    <div id="inicioDiv" class="inicio">
         <div class="divInicio">
-            <p>Ingresa tu nombre de usuario</p>
-            <input id="usuario" type="text">
-            <button id="btnComenzar">Comenzar Juego</button>
+            <div style="width: 100vw;">
+                <p>Ingresa tu nombre de usuario</p>
+            </div>
+            <div style="width: 100vw;">
+                <input id="usuario" type="text">
+            </div>
+            <div style="width: 100vw;">
+                <button id="btnComenzar">Comenzar Juego</button>
+            </div>
+            <div style="width: 100vw;">
+                <button id="btnTop">Top Puntuaciones</button>
+            </div>
+            
         </div>
     </div>
-    <div class="juego">
-        <div class="btnContenedor">
+    <div id="juegoDiv" class="noVisible">
+        <div id="contenedorBtn" class="noVisible">
             <div class="cuadro rojo"></div>
             <div class="cuadro amarillo"></div>
             <div class="cuadro azul"></div>
             <div class="cuadro verde"></div>
         </div>
-        <div id="ronda"></div>
-        <div id="record"></div>
+        <div id="UI" class="juegoUI">
+            <div id="ronda"></div>
+            <div id="record"></div>
+        </div>
+        <div id="reinicio">
+            <button id="btnReinicio">Reiniciar</button>
+        </div>    
+    </div>
+    <div id="top" class="noVisible">
+        <table>
+            <tr>
+              <th>&nbsp;</th> 
+              <th>Nombre</th>
+              <th>Puntuación Máxima</th>
+            </tr>
+            <tr>
+                <td>1</td> 
+                <td>Luis</td>
+                <td>10</td>
+            </tr>
+            <tr>
+                <td>2</td> 
+                <td>Jonas</td>
+                <td>5</td>
+            </tr>
+        </table>
     </div>
 </body>
 </html>
