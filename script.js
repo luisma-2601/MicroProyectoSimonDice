@@ -127,7 +127,7 @@ class Juego {
     // Ejecuta una función cuando se hace click en un botón
     clickBoton(valor) {
         !this.bloqueoBotones && this.validarColorEscogido(valor);
-        this.records.push({'jugador': 'J1', 'puntuacion': this.ronda});
+        
         
     }
 
@@ -190,6 +190,8 @@ class Juego {
         console.log(this.record);
         this.errorSound.play();
         setTimeout( () => alert("Has Perdido!!, presiona Reiniciar para intentarlo nuevamente"), this.velocidad / 2)
+        this.records.push({'jugador': usuario.value, 'puntuacion': this.ronda});
+        console.log(this.records);
         this.display.btnComenzar.disabled = false; 
         
         this.bloqueoBotones = true;
