@@ -12,6 +12,7 @@ const game = document.getElementById('juegoDiv');
 const usuario = document.getElementById('usuario');
 
 
+
 class Juego {
     constructor(botones, btnComenzar, ronda, record) {
         this.record = 0;
@@ -65,6 +66,8 @@ class Juego {
     }
 
     mostrarRecords() {
+        //this.limpiarBody();
+        this.genera_tabla();
         home.classList.remove('noVisible');
         home.classList.add('home');
         this.display.btnComenzar.disabled = true;
@@ -190,11 +193,32 @@ class Juego {
         console.log(this.record);
         this.errorSound.play();
         setTimeout( () => alert("Has Perdido!!, presiona Reiniciar para intentarlo nuevamente"), this.velocidad / 2)
-        this.records.push({'jugador': usuario.value, 'puntuacion': this.ronda});
+        let player = {'jugador': usuario.value, 'puntuacion': this.ronda};
+        this.buscarJugador(player);
         console.log(this.records);
         this.display.btnComenzar.disabled = false; 
         
         this.bloqueoBotones = true;
+    }
+
+    buscarJugador(player){
+        let usuarioLogged = "";
+        for (const element of this.records){
+            if (element.jugador == player.jugador){
+                usuarioLogged = element.jugador;
+                if (this.ronda > element.puntuacion){
+                    element.puntuacion = this.ronda;
+                    window.localStorage.setItem('records', JSON.stringify(this.records));
+                    return true;
+                }
+                
+            }
+        }
+        console.log(usuarioLogged);
+        if (usuarioLogged == ""){
+            this.records.push(player);
+        }
+        window.localStorage.setItem('records', JSON.stringify(this.records));
     }
 
     // Muestra la animación de triunfo y actualiza el simon cuando el jugador gana
@@ -205,6 +229,96 @@ class Juego {
             btn.classList.toggle('ganador');
         });
         this.actualizarRonda('❌');
+    }
+
+    genera_tabla() {
+        
+        
+        // Crea un elemento <table> y un elemento <tbody>
+        let tabla = document.getElementById("tablaTop");
+        //tabla.querySelector("tbody").innerHTML="";
+        tabla.innerHTML="";
+        
+        let tblBody = document.createElement("tbody");
+
+        let fila = document.createElement("tr");
+        let celdaHeader1 = document.createElement("th");
+        let header1 = document.createTextNode(
+            "TOP",
+        );
+        let celdaHeader2 = document.createElement("th");
+        let header2 = document.createTextNode(
+            "NOMBRE JUGADOR",
+        );
+        let celdaHeader3 = document.createElement("th");
+        let header3 = document.createTextNode(
+            "PUNTUACION",
+        );
+        celdaHeader1.appendChild(header1);
+        celdaHeader2.appendChild(header2);
+        celdaHeader3.appendChild(header3);
+        fila.appendChild(celdaHeader1);
+        fila.appendChild(celdaHeader2);
+        fila.appendChild(celdaHeader3);
+        tblBody.appendChild(fila);
+        
+        this.records = window.localStorage.getItem('records') ? JSON.parse(window.localStorage.getItem('records')) : this.records;
+        this.ordenarLista(this.records);
+        let top = 1;
+        // Crea las celdas
+        for (let i = this.records.length -1; i >= 0; i--) {let
+            // Crea las filas de la tabla
+            fila = document.createElement("tr");
+
+            let celda1 = document.createElement("td");
+            let textoCelda1 = document.createTextNode(top);
+            celda1.appendChild(textoCelda1);
+
+            let celda2 = document.createElement("td");
+            let textoCelda2 = document.createTextNode(this.records[i].jugador);
+            celda2.appendChild(textoCelda2);
+
+            let celda3 = document.createElement("td");
+            let textoCelda3 = document.createTextNode(this.records[i].puntuacion);
+            celda3.appendChild(textoCelda3);
+
+            fila.appendChild(celda1);
+            fila.appendChild(celda2);
+            fila.appendChild(celda3);
+            
+        
+            // agrega la fila al final de la tabla (al final del elemento tblbody)
+            tblBody.appendChild(fila);
+            top++;
+        }
+    
+    // posiciona el <tbody> debajo del elemento <table>
+    tabla.appendChild(tblBody);
+    }
+
+    //limpia el body de la tabla
+    limpiarBody(){
+        document.getElementById("tablaTop").querySelector("tbody").innerHTML="";
+    }
+
+    ordenarLista(vector){
+        let n = vector.length;
+        for (let i = 0; i < n; i++){
+            let min_idx = i;
+            console.log(min_idx);
+            for (let j = i + 1; j < n; j++){
+                console.log(vector[min_idx].puntuacion);
+                console.log(vector[j].puntuacion);
+                if (vector[min_idx].puntuacion > vector[j].puntuacion)
+                    min_idx = j;
+            }
+            let temp = vector[i];
+            let temp2 = vector[min_idx];
+            vector[i] = temp2;
+            vector[min_idx] = temp;
+        }
+        console.log(vector);
+
     }
 }
 
